@@ -1,3 +1,3 @@
-# AmanaAndroid
+# Android
 
-Amana android contains anproid app source code
+Karbala android contains anproid app source code
