@@ -1,0 +1,133 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+
+}
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29.0.0"
+    defaultConfig {
+        applicationId "com.xapps.karbala"
+        minSdkVersion 19
+        targetSdkVersion 28
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        versionCode 1
+        versionName "0.0.1"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro', '-keep class androidx.appcompat.widget.** { *; }'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+        targetCompatibility JavaVersion.VERSION_1_8
+
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment:2.2.1'
+    implementation 'androidx.navigation:navigation-ui:2.2.1'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+    implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    //rxjava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    //dialogs -> sweet library
+    implementation 'com.github.f0ris.sweetalert:library:1.5.1'
+    //validate mobile number
+    implementation 'io.michaelrocks:libphonenumber-android:8.10.7'
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    //loader
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
+    //font
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+    //Fancy Toast
+    implementation 'com.github.Shashank02051997:FancyToast-Android:0.1.6'
+    //pretty time
+    implementation 'org.ocpsoft.prettytime:prettytime:4.0.2.Final'
+    //Butter knife
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    //map
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    //Firebase
+    /*implementation 'com.google.firebase:firebase-core:17.2.2'
+    implementation 'com.google.firebase:firebase-messaging:20.1.0'*/
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.github.f0ris.sweetalert:library:1.5.1'
+    //Room
+    def room_version = "2.2.5"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "android.arch.persistence.room:rxjava2:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+    //photo from cam or gallery
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    //blank utils
+    implementation 'com.blankj:utilcode:1.25.2'
+    implementation 'com.google.android.libraries.places:places:2.2.0'
+    implementation 'com.google.android.gms:play-services-safetynet:17.0.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.hbb20:ccp:2.2.5'
+    //ExoPlayer
+    implementation 'com.google.android.exoplayer:exoplayer:2.10.2'
+
+
+}
+
+//apply plugin: 'com.google.gms.google-services'
+
