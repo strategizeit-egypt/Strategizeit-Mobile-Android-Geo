@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="locale"
+    android:background="@color/background_color"
+    tools:context=".ui.termsandconditions.view.TermsConditionsActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_shape_layout" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/dimen_20"
+        app:cardCornerRadius="@dimen/dimen_10"
+        app:layout_constraintBottom_toTopOf="@id/txt_brought_to_you"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:textAlignment="viewStart"
+                android:padding="@dimen/dimen_25"
+                android:id="@+id/text_terms_conditions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="1.8"
+                android:fontFamily="@font/din_next_lt_w23_regular"
+                android:text="Other than the content you own, under these Terms, Company Name and/or its licensors own all the intellectual property rights and materials contained in this Website.
+                 \n\nYou are granted limited license only for purposes of viewing the material contained on this Website.\n Restrictions\n You are specifically restricted from all of the following:\n - publishing any Website material in any other media;\n - selling, sublicensing and/or otherwise commercializing any Website material;\n - publicly performing and/or showing any Website material;\n - using this Website in any way that is or may be damaging to this Website;\n - using this Website in any way that impacts user access to this Website; \n- using this Website contrary to applicable laws and regulations, or in any way may cause harm to the Website, or to any person or business entity;\n - engaging in any data mining, data harvesting, data extracting or any other similar activity in relation to this Website; \n- using this Website to engage in any advertising or marketing."
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Time" />
+        </androidx.core.widget.NestedScrollView>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/txt_brought_to_you"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_8"
+        android:layout_marginBottom="@dimen/dimen_8"
+        android:text="@string/msg_brought_to_you"
+        android:textSize="@dimen/font_11"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

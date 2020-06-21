@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layoutDirection="locale"
+    tools:context=".ui.register.view.RegisterActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_shape_layout" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txt_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginEnd="@dimen/dimen_30"
+                android:text="@string/title_welcome_to_karbala"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_20"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:paddingBottom="@dimen/dimen_3"
+                android:id="@+id/txt_citizen_visitor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginEnd="@dimen/dimen_30"
+                android:text="@string/title_citizen_or_visitor"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_welcome" />
+
+            <RadioGroup
+                android:id="@+id/rg_user_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:layout_marginEnd="@dimen/dimen_30"
+                android:background="@drawable/radio_group_background"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_5"
+                app:layout_constraintTop_toBottomOf="@id/txt_citizen_visitor">
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/rb_citizen"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_button_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:minEms="7"
+                    android:text="@string/title_citizen"
+                    android:textColor="@color/radio_button_color_selector"
+                    android:textSize="@dimen/font_20" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/rb_visitor"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dimen_5"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_button_selector"
+                    android:button="@null"
+                    android:fontFamily="@font/hacen_tunisia_lt"
+                    android:gravity="center"
+                    android:minEms="4"
+                    android:paddingTop="@dimen/dimen_5"
+                    android:paddingBottom="@dimen/dimen_5"
+                    android:text="@string/title_visitor"
+                    android:textColor="@color/radio_button_color_selector"
+                    android:textSize="@dimen/font_20" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/txt_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_18"
+                android:layout_marginEnd="@dimen/dimen_30"
+                android:text="@string/title_sign_up_as_citizen"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_20"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rg_user_type" />
+
+            <TextView
+                android:id="@+id/txt_fields_mandatory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:layout_marginEnd="@dimen/dimen_30"
+                android:text="@string/title_all_fields_mandatory"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_14"
+                app:layout_constraintTop_toBottomOf="@id/txt_sign_up" />
+
+            <EditText
+                android:id="@+id/txt_citizen_full_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:layout_marginStart="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_25"
+                android:layout_marginEnd="@dimen/dimen_30"
+                android:background="@drawable/round_border_grey_radius20"
+                android:hint="@string/title_hint_full_name"
+                android:inputType="text"
+                android:paddingStart="@dimen/dimen_20"
+                android:paddingEnd="@dimen/dimen_18"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_14"
+                app:layout_constraintTop_toBottomOf="@id/txt_fields_mandatory" />
+
+            <EditText
+                android:id="@+id/txt_citizen_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:layout_marginStart="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_13"
+                android:layout_marginEnd="@dimen/dimen_30"
+                android:background="@drawable/round_border_grey_radius20"
+                android:hint="@string/title_hint_email"
+                android:inputType="textEmailAddress"
+                android:paddingStart="@dimen/dimen_20"
+                android:paddingEnd="@dimen/dimen_18"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_14"
+                app:layout_constraintTop_toBottomOf="@id/txt_citizen_full_name" />
+
+            <LinearLayout
+                android:id="@+id/layout_phone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:layout_marginStart="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_13"
+                android:layout_marginEnd="@dimen/dimen_30"
+                android:background="@drawable/round_border_grey_radius20"
+                android:layoutDirection="ltr"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/dimen_16"
+                android:paddingEnd="@dimen/dimen_18"
+                app:layout_constraintTop_toBottomOf="@id/txt_citizen_email">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/spinner_country_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    app:ccpDialog_keyboardAutoPopup="false"
+                    app:ccp_arrowColor="@color/black"
+                    app:ccp_autoDetectLanguage="true"
+                    app:ccp_defaultNameCode="IQ"
+                    app:ccp_excludedCountries="IL"
+                    app:ccp_showArrow="true"
+                    app:ccp_showFlag="false"
+                    app:ccp_showFullName="false"
+                    app:ccp_showNameCode="false"
+                    app:ccp_showPhoneCode="true"
+                    app:ccp_textGravity="CENTER"
+                    app:ccp_textSize="@dimen/font_14" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="@dimen/dimen_20"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/dim_gray" />
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/phone_hint"
+                    android:inputType="phone"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/dim_gray"
+                    android:textSize="@dimen/font_14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_dob"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:layout_marginStart="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_13"
+                android:layout_marginEnd="@dimen/dimen_30"
+                android:background="@drawable/round_border_grey_radius20"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/dimen_20"
+                android:paddingEnd="@dimen/dimen_18"
+                app:layout_constraintTop_toBottomOf="@id/layout_phone">
+
+                <TextView
+                    android:id="@+id/txt_dob"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/title_date_format"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_14" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/dimen_10"
+                    android:minWidth="@dimen/dimen_16"
+                    android:src="@drawable/calendar" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_gender"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:layout_marginStart="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_13"
+                android:layout_marginEnd="@dimen/dimen_30"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/dimen_13"
+                app:layout_constraintTop_toBottomOf="@id/layout_dob">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".3"
+                    android:gravity="center_vertical"
+                    android:text="@string/title_gender" />
+
+                <RadioGroup
+                    android:id="@+id/rg_gender"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_male"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingStart="@dimen/dimen_5"
+                        android:text="@string/title_male" />
+
+                    <RadioButton
+                        android:id="@+id/rb_female"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingStart="@dimen/dimen_5"
+                        android:text="@string/title_female" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_citizen_visitor_address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45"
+                android:layout_marginStart="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_13"
+                android:layout_marginEnd="@dimen/dimen_30"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/layout_gender">
+
+                <LinearLayout
+                    android:id="@+id/layout_citizen_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/layout_citizen_area"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <Spinner
+                            android:id="@+id/spinner_citizen_area"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+
+                    <EditText
+                        android:id="@+id/et_citizen_city"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dimen_10"
+                        android:layout_marginEnd="@dimen/dimen_10"
+                        android:layout_weight="1"
+                        android:background="@drawable/border_grey"
+                        android:gravity="center_vertical"
+                        android:hint="@string/title_city"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/dimen_16"
+                        android:paddingEnd="@dimen/dimen_16"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_13" />
+
+                    <EditText
+                        android:id="@+id/et_citizen_neighborhood"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="@string/title_neighborhood"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/dimen_16"
+                        android:paddingEnd="@dimen/dimen_16"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_13" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_visitor_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/layout_visitor_country"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/round_border_grey_radius20">
+
+                        <Spinner
+                            android:id="@+id/spinner_visitor_country"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_visitor_govern"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dimen_13"
+                        android:layout_weight="1"
+                        android:background="@drawable/round_border_red_radius20"
+                        android:visibility="gone">
+
+                        <Spinner
+                            android:id="@+id/spinner_visitor_govern"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/txt_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dime_50"
+                android:layout_marginTop="@dimen/dimen_45"
+                android:layout_marginEnd="@dimen/dime_50"
+                android:background="@drawable/round_solid_blue"
+                android:gravity="center"
+                android:paddingTop="@dimen/dimen_13"
+                android:paddingBottom="@dimen/dimen_13"
+                android:text="@string/send"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/layout_citizen_visitor_address" />
+
+            <TextView
+                android:id="@+id/txt_brought_to_you"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_8"
+                android:layout_marginTop="@dimen/dimen_33"
+                android:layout_marginEnd="@dimen/dimen_8"
+                android:layout_marginBottom="@dimen/dimen_8"
+                android:text="@string/msg_brought_to_you"
+                android:textSize="@dimen/font_11"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_register"
+                app:layout_constraintVertical_bias="1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

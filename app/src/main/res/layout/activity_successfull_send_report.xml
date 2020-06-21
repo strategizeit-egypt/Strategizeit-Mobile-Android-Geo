@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:layoutDirection="locale"
+    tools:context=".ui.successfullsendreport.view.SuccessfullSendReportActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".415" />
+
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="320dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guide1"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintWidth_percent=".88">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="275dp"
+            app:cardCornerRadius="@dimen/dimen_33"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:minHeight="275dp"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_25">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/tomato"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/successfully"/>
+                <TextView
+                    android:textColor="@color/black"
+                    android:padding="@dimen/dimen_16"
+                    android:lineSpacingMultiplier="1.5"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Compat.Notification"
+                    android:layout_height="wrap_content"
+                    android:text="@string/msg_send_complaint_successfully"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/img_open_reports"
+            android:layout_width="@dimen/dime_50"
+            android:layout_height="@dimen/dime_50"
+            app:layout_anchor="@id/card"
+            app:layout_anchorGravity="bottom|center"
+            app:srcCompat="@drawable/ic_button" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:src="@drawable/art_4"
+        app:layout_constraintBottom_toTopOf="@id/guide3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintWidth_percent=".88" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/coordinator">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_3"
+            android:text="@string/msg_need_back"
+            android:textAppearance="@style/TextAppearance.Compat.Notification.Time"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/text_home_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_3"
+            android:text="@string/act_home_screen"
+            android:textAppearance="@style/TextAppearance.Compat.Notification.Time"
+            android:textColor="@color/tomato" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

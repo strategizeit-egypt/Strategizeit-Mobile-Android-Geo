@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/toolbar_shape"
+        android:layout_width="@dimen/dime_150"
+        android:layout_height="@dimen/dime_85"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:srcCompat="@drawable/ic_shape_white_bg" />
+
+    <ImageView
+        android:id="@+id/ic_back"
+        android:layout_width="@dimen/dime_50"
+        android:layout_height="@dimen/dimen_25"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/dimen_20"
+        android:paddingStart="@dimen/dimen_5"
+        android:paddingTop="@dimen/dimen_5"
+        android:paddingEnd="@dimen/dimen_8"
+        android:paddingBottom="@dimen/dimen_5"
+        app:srcCompat="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/dimen_20"
+        android:layout_toEndOf="@id/ic_back"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black" />
+
+    <ImageView
+        android:id="@+id/agree_terms_conditions"
+        android:layout_width="@dimen/dimen_33"
+        android:layout_height="@dimen/dimen_20"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/dimen_20"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_check" />
+
+</RelativeLayout>

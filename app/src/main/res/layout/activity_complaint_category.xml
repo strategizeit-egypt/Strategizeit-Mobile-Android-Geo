@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layoutDirection="locale"
+    tools:context=".ui.complaintcategory.view.ComplaintCategoryActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_shape_layout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/complaint_category_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingStart="@dimen/dimen_13"
+        android:paddingTop="@dimen/dimen_13"
+        android:layout_marginBottom="@dimen/dimen_13"
+        android:paddingEnd="@dimen/dimen_20"
+        app:layout_constraintBottom_toTopOf="@id/txt_brought_to_you"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:itemCount="5" />
+
+    <TextView
+        android:layout_marginTop="@dimen/dimen_16"
+        android:id="@+id/txt_brought_to_you"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_8"
+        android:layout_marginBottom="@dimen/dimen_8"
+        android:text="@string/msg_brought_to_you"
+        android:textSize="@dimen/font_11"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

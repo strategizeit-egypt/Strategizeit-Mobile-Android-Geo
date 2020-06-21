@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:fillViewport="true"
+    android:layoutDirection="locale"
+    tools:context=".ui.verify.view.VerificationActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".395" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".415" />
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="320dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guide1"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent=".88">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="270dp"
+                app:cardCornerRadius="@dimen/dimen_33"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:minHeight="270dp"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimen_25">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/enter_verification_code"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/dimen_20"
+                        android:paddingEnd="@dimen/dimen_20"
+                        android:paddingBottom="@dimen/dimen_3"
+                        android:text="@string/verification_message_description"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                        android:textColor="@color/black" />
+
+
+                    <LinearLayout
+                        android:id="@+id/verify_code_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_45"
+                        android:layout_marginTop="@dimen/dimen_16"
+                        android:background="@drawable/round_border_grey_radius20"
+                        android:layoutDirection="ltr"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dimen_5">
+
+                        <EditText
+                            android:id="@+id/first_num"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".7"
+                            android:background="@null"
+                            android:cursorVisible="true"
+                            android:gravity="center"
+                            android:inputType="phone"
+                            android:maxLength="1"
+                            android:text="7"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/dimen_5"
+                            android:layout_marginEnd="@dimen/dimen_5"
+                            android:background="@color/dim_gray" />
+
+                        <EditText
+                            android:id="@+id/second_num"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".7"
+                            android:background="@null"
+                            android:gravity="center"
+                            android:inputType="phone"
+
+                            android:maxLength="1"
+                            android:text="7"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/dimen_5"
+                            android:layout_marginEnd="@dimen/dimen_5"
+                            android:background="@color/dim_gray" />
+
+                        <EditText
+                            android:id="@+id/third_num"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".7"
+                            android:background="@null"
+                            android:gravity="center"
+                            android:inputType="phone"
+                            android:maxLength="1"
+
+                            android:text="7"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/dimen_5"
+                            android:layout_marginEnd="@dimen/dimen_5"
+                            android:background="@color/dim_gray" />
+
+                        <EditText
+                            android:id="@+id/forth_num"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".7"
+                            android:background="@null"
+                            android:gravity="center"
+
+                            android:inputType="phone"
+                            android:maxLength="1"
+                            android:text="7"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/verify_iv"
+                android:layout_width="@dimen/dime_50"
+                android:layout_height="@dimen/dime_50"
+                app:layout_anchor="@id/card"
+                app:layout_anchorGravity="bottom|center"
+                app:srcCompat="@drawable/ic_button" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/art_3"
+            app:layout_constraintBottom_toTopOf="@id/guide3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintWidth_percent=".88" />
+
+
+        <LinearLayout
+            android:id="@+id/code_timer_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/coordinator"
+            app:layout_constraintVertical_bias=".3">
+
+            <TextView
+                android:id="@+id/code_timer_explain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time_to_get_code"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Time"
+                android:textColor="@color/msu_green" />
+
+            <TextView
+                android:id="@+id/code_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_5"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Time"
+                android:textColor="@color/msu_green" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/resend_code_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/code_timer_container"
+            app:layout_constraintVertical_bias=".3">
+
+
+            <TextView
+                android:id="@+id/resend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_5"
+                android:text="@string/didnt_recieve"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Time"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/resend_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/send_again"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Time"
+                android:textColor="@color/tomato" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_brought_to_you"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:layout_marginTop="@dimen/dimen_33"
+            android:layout_marginBottom="@dimen/dimen_8"
+            android:text="@string/msg_brought_to_you"
+            android:textSize="@dimen/font_11"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/resend_code_container"
+            app:layout_constraintVertical_bias="1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

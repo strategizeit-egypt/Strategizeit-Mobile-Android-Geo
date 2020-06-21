@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:fillViewport="true"
+    android:layoutDirection="locale"
+    tools:context=".ui.login.view.LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".34" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".355" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".37" />
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:src="@drawable/art_1"
+            app:layout_constraintBottom_toTopOf="@id/guide3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintWidth_percent=".88" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/dimen_285"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guide1"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent=".88">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="@dimen/dimen_33"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|top"
+                    android:minHeight="@dimen/dime_260"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimen_25">
+
+                    <TextView
+                        android:paddingBottom="@dimen/dimen_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_8"
+                        android:text="@string/title_welcome_to_karbala"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_20"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dimen_30"
+                        android:text="@string/title_sign_in"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_20"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:text="@string/add_mobile_number"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_14" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_30"
+                        android:background="@drawable/round_border_grey_radius20"
+                        android:gravity="center_vertical"
+                        android:layoutDirection="ltr"
+                        android:minHeight="@dimen/dimen_40"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/dimen_18"
+                        android:paddingEnd="@dimen/dimen_18">
+
+                        <com.hbb20.CountryCodePicker
+                            android:id="@+id/spinner_country_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            app:ccpDialog_keyboardAutoPopup="false"
+                            app:ccp_arrowColor="@color/black"
+                            app:ccp_autoDetectLanguage="true"
+                            app:ccp_defaultNameCode="IQ"
+                            app:ccp_excludedCountries="IL"
+                            app:ccp_showArrow="true"
+                            app:ccp_showFlag="false"
+                            app:ccp_showFullName="false"
+                            app:ccp_showNameCode="false"
+                            app:ccp_showPhoneCode="true"
+                            app:ccp_textGravity="CENTER"
+                            app:ccp_textSize="@dimen/font_14" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="@dimen/dimen_20"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/dim_gray" />
+
+                        <EditText
+                            android:id="@+id/phone_et"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/dimen_10"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:hint="@string/phone_hint"
+                            android:inputType="phone"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/dim_gray"
+                            android:textSize="@dimen/font_14" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/login_btn"
+                android:layout_width="@dimen/dime_50"
+                android:layout_height="@dimen/dime_50"
+                app:layout_anchor="@id/card"
+                app:layout_anchorGravity="bottom|center"
+                app:srcCompat="@drawable/ic_button" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/art_2"
+            app:layout_constraintBottom_toBottomOf="@id/guide2"
+            app:layout_constraintHorizontal_bias=".58"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layout_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/terms_conditions_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/coordinator">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/title_not_have_account"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_14" />
+
+            <Button
+                android:id="@+id/btn_new_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:background="@drawable/round_solid_tomato"
+                android:paddingTop="@dimen/dimen_16"
+                android:paddingBottom="@dimen/dimen_16"
+                android:text="@string/title_new_account"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_18"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/terms_conditions_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_20"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/txt_brought_to_you"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <CheckBox
+                android:id="@+id/term_cond_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:enabled="true"
+                android:text="@string/terms_conditions"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Time"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/terms_conditions_click_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_3"
+                android:text="@string/terms_conditions_click"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Time"
+                android:textColor="@color/tomato" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_brought_to_you"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:layout_marginBottom="@dimen/dimen_8"
+            android:text="@string/msg_brought_to_you"
+            android:textSize="@dimen/font_11"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

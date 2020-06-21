@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+<!--
+    <color name="colorPrimaryDark">#FFF1D5</color>
+-->
+    <color name="colorPrimaryDark">@color/blue</color>
+
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="tomato">#ef5e41</color>
+    <color name="background_color">@color/blue2</color>
+    <color name="blue">#1164EB</color>
+    <color name="msu_green">#133643</color>
+    <color name="dim_gray">#979797</color>
+<!--    <color name="dim_gray2">#707070</color>-->
+    <color name="blue2">#DBE8FF</color>
+    <color name="davy_grey">#555555</color>
+    <color name="gainsboro">#ffd9d9d9</color>
+    <color name="harvest_gold">#ffcfa600</color>
+    <color name="white_smoke">#F2F7F9</color>
+</resources>
+

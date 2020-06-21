@@ -1,0 +1,35 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="android:fontFamily">@font/din_next_lt_w23_regular</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+        <item name="android:fontFamily">@font/din_next_lt_w23_regular</item>
+
+    </style>
+
+    <style name="AppTheme.AppBarOverlay"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="bottom_nav_font" parent="AppTheme">
+        <item name="android:textAppearance">@style/TextAppearance.Compat.Notification.Time</item>
+        <item name="android:fontFamily">@font/din_next_lt_w23_regular</item>
+
+    </style>
+
+
+
+</resources>
