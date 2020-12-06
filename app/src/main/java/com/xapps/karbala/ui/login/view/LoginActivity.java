@@ -3,6 +3,7 @@ package com.xapps.karbala.ui.login.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -171,6 +172,14 @@ public class LoginActivity extends BaseActivity implements LoginView {
     public void onError(int code) {
         if (code == 31) {
             KarbalaUtils.showToast(this, getString(R.string.user_not_registered), Constants.FANCYERROR);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                    intent.putExtra(Constants.PHONE_NUMBER,mPhoneET.getText().toString());
+                    startActivity(intent);
+                }
+            },500);
             return;
         }
         KarbalaUtils.showErrorResult(this);

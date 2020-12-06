@@ -148,11 +148,16 @@ public class MoreFragment extends Fragment implements MoreView {
 
     @OnClick(R.id.save_user_name)
     public void onSaveUserNameClicked() {
-        if (loginDTO.getFullName().contentEquals(mUserNameET.getText().toString())) {
-            KarbalaUtils.showToast(getContext(), getString(R.string.error_user_name_not_chnaged), Constants.FANCYERROR);
-            return;
+        try {
+            if (loginDTO.getFullName().contentEquals(mUserNameET.getText().toString())) {
+                KarbalaUtils.showToast(getContext(), getString(R.string.error_user_name_not_chnaged), Constants.FANCYERROR);
+                return;
+            }
+            morePresenter.editFullName(mUserNameET.getText().toString());
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        morePresenter.editFullName(mUserNameET.getText().toString());
+
     }
 
     @Override

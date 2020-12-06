@@ -1,32 +1,20 @@
 buildscript {
-    repositories {
-        maven { url 'https://maven.fabric.io/public' }
-    }
-
-    dependencies {
-        classpath 'io.fabric.tools:gradle:1.+'
-    }
-
 }
 apply plugin: 'com.android.application'
-apply plugin: 'io.fabric'
-
-repositories {
-    maven { url 'https://maven.fabric.io/public' }
-}
-
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "29.0.0"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.xapps.karbala"
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 29
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
-        versionCode 1
-        versionName "0.0.1"
+        versionCode 7
+        versionName "0.0.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
@@ -74,7 +62,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
     implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
@@ -93,7 +80,8 @@ dependencies {
     //loader
     implementation 'com.kaopiz:kprogresshud:1.2.0'
     //font
-    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+    implementation 'io.github.inflationx:viewpump:2.0.3'
     //Fancy Toast
     implementation 'com.github.Shashank02051997:FancyToast-Android:0.1.6'
     //pretty time
@@ -103,11 +91,18 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     //map
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.maps.android:android-maps-utils:2.0.3'
+
     //Firebase
-    /*implementation 'com.google.firebase:firebase-core:17.2.2'
-    implementation 'com.google.firebase:firebase-messaging:20.1.0'*/
+    implementation platform('com.google.firebase:firebase-bom:26.1.0')
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.google.firebase:firebase-messaging:20.2.4'
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics:17.3.0'
+
+
     implementation 'com.github.f0ris.sweetalert:library:1.5.1'
+
     //Room
     def room_version = "2.2.5"
     implementation "androidx.room:room-runtime:$room_version"
@@ -129,5 +124,4 @@ dependencies {
 
 }
 
-//apply plugin: 'com.google.gms.google-services'
 

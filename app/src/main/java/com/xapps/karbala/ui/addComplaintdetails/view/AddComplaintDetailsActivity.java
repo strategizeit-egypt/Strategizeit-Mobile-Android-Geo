@@ -466,15 +466,8 @@ public class AddComplaintDetailsActivity extends BaseActivity implements AddComp
             mReportFilesList.add(MultipartBody.Part.createFormData("video", videoFile.getName(), videoRequestBody));
 
         }
-        Log.v("LatLng",NewComplaintFragment.mLatLng.toString());
+        Log.v("LatLng", NewComplaintFragment.mLatLng.toString());
         sendComplaint();
-    }
-
-    @Override
-    public void onAddReportDetailsResult(ObjectModel<ComplaintDTO> reportDTOObjectModel) {
-        Intent intent = new Intent(AddComplaintDetailsActivity.this, SuccessfullSendReportActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     public void sendComplaint() {
@@ -496,6 +489,12 @@ public class AddComplaintDetailsActivity extends BaseActivity implements AddComp
         Log.e("Register Activity", "Success");
     }
 
+    @Override
+    public void onAddReportDetailsResult(ObjectModel<ComplaintDTO> reportDTOObjectModel) {
+        Intent intent = new Intent(AddComplaintDetailsActivity.this, SuccessfullSendReportActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
     @OnClick(R.id.add_record_container)
     public void OnAddRecordClick() {

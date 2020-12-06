@@ -5,12 +5,10 @@ import android.content.Context;
 
 import androidx.multidex.MultiDex;
 
-import com.crashlytics.android.Crashlytics;
 import com.xapps.karbala.model.data.source.preferences.SharedManager;
 import com.xapps.karbala.utils.Constants;
 import com.xapps.karbala.utils.LocalHelper;
 
-import io.fabric.sdk.android.Fabric;
 
 public class App extends Application {
 
@@ -23,7 +21,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Fabric.with(this, new Crashlytics());
+        //Fabric.with(this, new Crashlytics());
         mContext = this;
 
        /* CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()

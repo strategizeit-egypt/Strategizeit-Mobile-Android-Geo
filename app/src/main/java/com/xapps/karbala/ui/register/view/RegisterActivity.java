@@ -103,6 +103,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
     // select iraq by default
     private long selectedCountryId = 0;
     private String dob;
+    private String phoneNumber;
 
 
     final Calendar myCalendar = Calendar.getInstance();
@@ -132,6 +133,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
 
+        phoneNumber = getIntent().getStringExtra(Constants.PHONE_NUMBER);
         lang = LocalHelper.getLanguage(this);
 
         initUI();
@@ -149,7 +151,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
 
         toolbarTitle.setText(getString(R.string.back));
         toolbarShape.setImageResource(R.drawable.ic_shape_cosmic_latte_bg);
-
+        etPhone.setText(phoneNumber);
         RGuserType.check(R.id.rb_citizen);
         RGuserType.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.rb_citizen) {
@@ -557,6 +559,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
             }
         } else {
             if (selectedCountryId == 0) {
+                KarbalaUtils.showToast(this, getString(R.string.err_country_empty), Constants.FANCYERROR);
                 return false;
             } else if (selectedCountryId == 1 && selectedVisitorMunicipalId == 0) {
                 KarbalaUtils.showToast(this, getString(R.string.err_govern_empty), Constants.FANCYERROR);
@@ -615,6 +618,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
     public void onError(int code) {
         if (code == 1) {
             KarbalaUtils.showToast(this, getString(R.string.phone_registered_before), Constants.FANCYERROR);
+            onBackPressed();
             return;
         }
         if (code == 2) {

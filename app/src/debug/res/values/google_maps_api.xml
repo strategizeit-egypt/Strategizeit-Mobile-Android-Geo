@@ -20,6 +20,6 @@
     Once you have your key (it starts with "AIza"), replace the "google_maps_key"
     string in this file.
     -->
-    <!--    modeer maps api key-->
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBrbTMdIjqpKb-JGq-BDycCmP_zHFrkZLw</string>
+    <!--    amana & karbala maps api key-->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyD4RHe_5JLjZ8_SIwSH_Yk1MaHMoZRfPrQ</string>
 </resources>

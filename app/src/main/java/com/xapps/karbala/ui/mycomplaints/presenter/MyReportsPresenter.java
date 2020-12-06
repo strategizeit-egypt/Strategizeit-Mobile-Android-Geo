@@ -3,7 +3,7 @@ package com.xapps.karbala.ui.mycomplaints.presenter;
 import android.annotation.SuppressLint;
 
 import com.xapps.karbala.model.DataManager;
-import com.xapps.karbala.ui.mycomplaints.view.MyReportsView;
+import com.xapps.karbala.ui.mycomplaints.view.MyComplaintsView;
 import com.xapps.karbala.utils.KarbalaUtils;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -11,10 +11,10 @@ import io.reactivex.schedulers.Schedulers;
 
 
 public class MyReportsPresenter {
-    MyReportsView myReportsView;
+    MyComplaintsView myComplaintsView;
 
-    public MyReportsPresenter(MyReportsView myReportsView) {
-        this.myReportsView = myReportsView;
+    public MyReportsPresenter(MyComplaintsView myComplaintsView) {
+        this.myComplaintsView = myComplaintsView;
     }
    /* @SuppressLint("CheckResult")
     public void getAllReports(int page, boolean sorting){
@@ -45,19 +45,19 @@ public class MyReportsPresenter {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(disposable -> {
-                    myReportsView.onShowLoader();
+                    myComplaintsView.onShowLoader();
                 })
                 .doOnError(throwable -> {
-                            KarbalaUtils.showError(myReportsView, throwable);
-                            myReportsView.onDismissLoader();
+                            KarbalaUtils.showError(myComplaintsView, throwable);
+                            myComplaintsView.onDismissLoader();
                         }
                 )
                 .doOnComplete(() -> {
-                    myReportsView.onDismissLoader();
+                    myComplaintsView.onDismissLoader();
                 })
                 .subscribe(reportDTOListModel -> {
-                    myReportsView.onDismissLoader();
-                    myReportsView.onAddReportDetailsResult(reportDTOListModel);
+                    myComplaintsView.onDismissLoader();
+                    myComplaintsView.onAddReportDetailsResult(reportDTOListModel);
                 }, throwable -> {
                 });
     }

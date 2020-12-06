@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.xapps.karbala.utils.LocalHelper;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 
 public class BaseActivity extends AppCompatActivity {
@@ -19,7 +19,7 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(LocalHelper.onAttach(newBase)) );
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(LocalHelper.onAttach(newBase,LocalHelper.getLanguage(newBase))));
     }
 
 }

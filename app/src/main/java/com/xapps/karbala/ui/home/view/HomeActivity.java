@@ -11,7 +11,7 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 import com.xapps.karbala.R;
 import com.xapps.karbala.ui.base.view.BaseActivity;
 import com.xapps.karbala.ui.more.view.MoreFragment;
-import com.xapps.karbala.ui.mycomplaints.view.MyReportsFragment;
+import com.xapps.karbala.ui.mycomplaints.view.MyComplaintsFragment;
 import com.xapps.karbala.ui.newcomplaint.view.NewComplaintFragment;
 import com.xapps.karbala.utils.KarbalaUtils;
 
@@ -26,7 +26,7 @@ public class HomeActivity extends BaseActivity {
     private FragmentTransaction ft;
     private boolean fragmentsInitiated = false;
     NewComplaintFragment newComplaintFragment;
-    MyReportsFragment myReportsFragment;
+    MyComplaintsFragment myComplaintsFragment;
     MoreFragment moreFragment;
     private boolean newReportFragmentAdded = false;
     private boolean myReportsFragmentAdded = false;
@@ -49,7 +49,7 @@ public class HomeActivity extends BaseActivity {
         ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.fade_out);
         if (!fragmentsInitiated) {
             newComplaintFragment = NewComplaintFragment.newInstance();
-            myReportsFragment = MyReportsFragment.newInstance();
+            myComplaintsFragment = MyComplaintsFragment.newInstance();
             moreFragment = MoreFragment.newInstance();
             fragmentsInitiated = true;
         }
@@ -60,16 +60,16 @@ public class HomeActivity extends BaseActivity {
                     newReportFragmentAdded = true;
                 }
                 ft.show(newComplaintFragment);
-                ft.hide(myReportsFragment);
+                ft.hide(myComplaintsFragment);
                 ft.hide(moreFragment);
                 break;
             case R.id.navigation_my_complaints:
                 if (!myReportsFragmentAdded) {
-                    ft.add(R.id.frame_container, myReportsFragment);
+                    ft.add(R.id.frame_container, myComplaintsFragment);
                     myReportsFragmentAdded = true;
                 }
                 ft.hide(newComplaintFragment);
-                ft.show(myReportsFragment);
+                ft.show(myComplaintsFragment);
                 ft.hide(moreFragment);
                 break;
             case R.id.navigation_more:
@@ -78,7 +78,7 @@ public class HomeActivity extends BaseActivity {
                     moreFragmentAdded = true;
                 }
                 ft.hide(newComplaintFragment);
-                ft.hide(myReportsFragment);
+                ft.hide(myComplaintsFragment);
                 ft.show(moreFragment);
                 break;
         }
@@ -97,6 +97,18 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void initUI() {
+        // Firebase force crash
+        /*Button crashButton = new Button(this);
+        crashButton.setText("Crash!");
+        crashButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                throw new RuntimeException("Test Crash"); // Force a crash
+            }
+        });
+
+        addContentView(crashButton, new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));*/
         if (selectedFragmentId == 0) {
             navView.setSelectedItemId(R.id.navigation_new_complaint);
         } else if (selectedFragmentId == 1) {

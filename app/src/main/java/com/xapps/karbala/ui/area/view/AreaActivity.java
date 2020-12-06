@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
@@ -35,6 +36,12 @@ public class AreaActivity extends BaseActivity {
     ImageView mToolbarShape;
     @BindView(R.id.areas_rv)
     RecyclerView mAreasRV;
+    @BindView(R.id.empty_layout)
+    ConstraintLayout emptyLayout;
+    @BindView(R.id.noDataMessage)
+    TextView noDataMessage;
+    @BindView(R.id.select_area)
+    TextView selectArea;
 
     private LinearLayoutManager mLinearLayoutManager;
     private AreasAdapter mAreaAdapter;
@@ -52,7 +59,8 @@ public class AreaActivity extends BaseActivity {
     }
 
     private void initUI() {
-        mToolbarTitle.setText(getString(R.string.municipalities));
+        noDataMessage.setText(getString(R.string.no_districts));
+        mToolbarTitle.setText(getString(R.string.title_districts));
         mToolbarShape.setImageResource(R.drawable.ic_shape_cosmic_latte_bg);
 
 
@@ -66,6 +74,18 @@ public class AreaActivity extends BaseActivity {
         mLinearLayoutManager = new LinearLayoutManager(this);
         mAreasRV.setLayoutManager(mLinearLayoutManager);
         mAreasRV.setAdapter(mAreaAdapter);
+
+        if (mAreaAdapter.getItemCount() == 0) {
+            emptyLayout.setVisibility(View.VISIBLE);
+            mAreasRV.setVisibility(View.GONE);
+            selectArea.setVisibility(View.GONE);
+
+        }else{
+            emptyLayout.setVisibility(View.GONE);
+            mAreasRV.setVisibility(View.VISIBLE);
+            selectArea.setVisibility(View.VISIBLE);
+
+        }
 
         try {
             ((SimpleItemAnimator) mAreasRV.getItemAnimator()).setSupportsChangeAnimations(false);

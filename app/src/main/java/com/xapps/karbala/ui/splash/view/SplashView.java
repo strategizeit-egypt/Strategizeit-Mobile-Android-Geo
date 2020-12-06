@@ -7,5 +7,6 @@ import com.xapps.karbala.ui.base.view.MainView;
 
 public interface SplashView extends MainView {
     void onMetaDataResult(ObjectModel<MetaDataDTO> metaDataDTOObjectModel);
+
     void onProfileResult(ObjectModel<LoginDTO> profileDTOObjectModel);
 }

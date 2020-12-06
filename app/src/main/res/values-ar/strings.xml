@@ -92,7 +92,7 @@
     <string name="confirm">تأكيد</string>
     <string name="sure_send_complaint">هل متأكد أنك تريد إرسال الشكوی؟</string>
     <string name="error_choose_location_first">قم باختيار الموقع أولاً</string>
-    <!-- Karbala -->
+    <!-- karbala -->
     <string name="title_all_fields_mandatory">كل الحقول مطلوبة، أملا كل الحقول</string>
     <string name="title_hint_full_name">الإسم بالكامل</string>
     <string name="title_hint_email">البريد الإلكتروني</string>
@@ -156,6 +156,10 @@
     <string name="invalid_phone_email">رقم جوال غير صحيح او بريد الكتروني غير صالح</string>
     <string name="complaint_comment">التعليق</string>
     <string name="complaint_details_audio_error_message">أدخل وصف الشكوی أو قم بتسجيل صوتي للشكوی</string>
+    <string name="err_out_of_karbala_area">أنت خارج حدود منطقة كربلاء</string>
+    <string name="err_country_empty">اختر دولتك</string>
+    <string name="no_districts">لا توجد أقضية</string>
+    <string name="title_districts">الأقضية</string>
 
 
 </resources>

@@ -4,7 +4,6 @@ package com.xapps.karbala.model.data.source.network;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.xapps.karbala.model.data.dto.TokenDTO;
 import com.xapps.karbala.model.data.source.preferences.SharedManager;
@@ -18,7 +17,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;

@@ -23,7 +23,6 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
@@ -39,12 +38,18 @@ import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.google.maps.android.PolyUtil;
 import com.xapps.karbala.R;
 import com.xapps.karbala.ui.area.view.AreaActivity;
-import com.xapps.karbala.utils.KarbalaUtils;
 import com.xapps.karbala.utils.Constants;
+import com.xapps.karbala.utils.KarbalaUtils;
 import com.xapps.karbala.utils.TLocationManager;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -70,7 +75,7 @@ public class NewComplaintFragment extends Fragment implements OnMapReadyCallback
 
 
     private boolean mapIsReady = false;
-
+    private List<LatLng> latLngs;
 
     public NewComplaintFragment() {
         // Required empty public constructor
@@ -106,7 +111,6 @@ public class NewComplaintFragment extends Fragment implements OnMapReadyCallback
     }
 
     private void initUI() {
-
         if (!Places.isInitialized()) {
             Places.initialize(getContext(), getString(R.string.google_maps_key));
         }
@@ -123,9 +127,9 @@ public class NewComplaintFragment extends Fragment implements OnMapReadyCallback
         mapIsReady = true;
         mMap = googleMap;
 
-        // Add a marker in Sydney, Australia, and move the camera.
-        mLatLng = new LatLng(32.61603, 44.02488);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mLatLng,12));
+        // Add a marker in Karbala, Iraq, and move the camera.
+        mLatLng = new LatLng(32.61603,44.02488);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mLatLng, 16));
 
         if (isLocationAllowed()) {
             getCurrentLocation();
@@ -244,14 +248,48 @@ public class NewComplaintFragment extends Fragment implements OnMapReadyCallback
 
     }
 
+    public void createKarbalaPolygon() {
+        latLngs = new ArrayList<>();
+        try {
+            InputStream file = getContext().getAssets().open("KarbalaPoints.txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(file));
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                String[] strings = line.split(",");
+                LatLng latLng = new LatLng(Double.parseDouble(strings[0]), Double.parseDouble(strings[1]));
+                latLngs.add(latLng);
+            }
+
+            br.close();
+            file.close();    //closes the stream and release the resources
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @OnClick(R.id.add_complaint_details)
     public void onAddComplaintClickListener(View view) {
+        createKarbalaPolygon();
         if (mLatLng != null) {
+            if (PolyUtil.containsLocation(mLatLng,latLngs,true)) {
+                Intent intent = new Intent(getContext(), AreaActivity.class);
+                startActivity(intent);
+            } else {
+                KarbalaUtils.showToast(getContext(),getString(R.string.err_out_of_karbala_area),Constants.FANCYERROR);
+            }
+
+        } else {
+            Toast.makeText(getContext(), getString(R.string.error_choose_location_first), Toast.LENGTH_SHORT).show();
+        }
+        /*if (mLatLng != null) {
             Intent intent = new Intent(getContext(), AreaActivity.class);
             startActivity(intent);
         } else {
             Toast.makeText(getContext(), getString(R.string.error_choose_location_first), Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     private void displayLocationSettingsRequest(Context context) {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Smart Karbala</string>
+    <string name="app_name">Smart karbala</string>
     <string name="english">English</string>
     <string name="arabic">عربي</string>
     <string name="developed_by">Developed by Information technology in Northern Borders Region Municipality</string>
@@ -104,12 +104,12 @@
     <string name="title_hint_full_name">Full name</string>
     <string name="title_hint_email">Email address</string>
     <string name="title_hint_mobile">Mobile number</string>
-    <string name="splash_sentence">Citizens Application to interact with the holy governorate of Karbala</string>
-    <string name="title_welcome_to_karbala">Welcome to Smart Karbala</string>
+    <string name="splash_sentence">Citizens Application to interact with the holy governorate of karbala</string>
+    <string name="title_welcome_to_karbala">Welcome to Smart karbala</string>
     <string name="title_sign_in">Sign In</string>
     <string name="title_not_have_account">If you don\'t have account yet, Please sign up</string>
     <string name="title_new_account">New account</string>
-    <string name="title_citizen_or_visitor">If you are Karbala citizen select citizen, if not select visitor</string>
+    <string name="title_citizen_or_visitor">If you are karbala citizen select citizen, if not select visitor</string>
     <string name="title_visitor">Visitor</string>
     <string name="title_citizen">Citizen</string>
     <string name="title_sign_up_as_citizen">Sign up as a citizen</string>
@@ -162,6 +162,10 @@
     <string name="invalid_phone_email">Invalid phone number or email</string>
     <string name="complaint_comment">Comment</string>
     <string name="complaint_details_audio_error_message">Enter complaint description or record voice</string>
+    <string name="err_out_of_karbala_area">You are outside the boundaries of the area of Karbala</string>
+    <string name="err_country_empty">Choose your country</string>
+    <string name="no_districts">No districts</string>
+    <string name="title_districts">Districts</string>
 
 
 </resources>

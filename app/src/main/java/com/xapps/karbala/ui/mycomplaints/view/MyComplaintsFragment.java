@@ -36,7 +36,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MyReportsFragment extends Fragment implements MyReportsView {
+public class MyComplaintsFragment extends Fragment implements MyComplaintsView {
     private MyReportsPresenter myReportsPresenter = new MyReportsPresenter(this);
 
     @BindView(R.id.reports_rv)
@@ -59,7 +59,7 @@ public class MyReportsFragment extends Fragment implements MyReportsView {
     private boolean isLoadMore = true;
 
     // private LinearLayoutManager mLinearLayoutManager;
-    private ReportsAdapter mReportsAdapter;
+    private ComplaintsAdapter mComplaintsAdapter;
 
     private boolean isSort = false;
     private boolean loadedFirstTime = false;
@@ -67,12 +67,12 @@ public class MyReportsFragment extends Fragment implements MyReportsView {
     private boolean searchFlag;
 
 
-    public MyReportsFragment() {
+    public MyComplaintsFragment() {
         // Required empty public constructor
     }
 
-    public static MyReportsFragment newInstance() {
-        MyReportsFragment fragment = new MyReportsFragment();
+    public static MyComplaintsFragment newInstance() {
+        MyComplaintsFragment fragment = new MyComplaintsFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -106,10 +106,10 @@ public class MyReportsFragment extends Fragment implements MyReportsView {
         mReportsRV.setItemAnimator(new DefaultItemAnimator());
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         mReportsRV.setLayoutManager(mLayoutManager);
-        mReportsAdapter = new ReportsAdapter(this, new ArrayList<>());
-        mReportsRV.setAdapter(mReportsAdapter);
+        mComplaintsAdapter = new ComplaintsAdapter(this, new ArrayList<>());
+        mReportsRV.setAdapter(mComplaintsAdapter);
 
-        mReportsAdapter.setOnReportItemClickListener(reportId -> {
+        mComplaintsAdapter.setOnReportItemClickListener(reportId -> {
             Intent intent = new Intent(getContext(), ComplaintDetailsActivity.class);
             intent.putExtra(Constants.COMPLAINT_ID, reportId);
             startActivity(intent);
@@ -142,7 +142,7 @@ public class MyReportsFragment extends Fragment implements MyReportsView {
         });
 
         mReportsSwipe.setOnRefreshListener(() -> {
-            mReportsAdapter.clear();
+            mComplaintsAdapter.clear();
             afterLoad = false;
             isLoadMore = true;
             offset = 0;
@@ -192,7 +192,7 @@ public class MyReportsFragment extends Fragment implements MyReportsView {
         try {
             loadedFirstTime = true;
             if (reportDTOListModel.getModel() != null) {
-                if (reportDTOListModel.getModel().size() == 0 && mReportsAdapter.getItemCount() == 0) {
+                if (reportDTOListModel.getModel().size() == 0 && mComplaintsAdapter.getItemCount() == 0) {
                     offset--;
                     isLoadMore = false;
                 } else {
@@ -202,7 +202,7 @@ public class MyReportsFragment extends Fragment implements MyReportsView {
                         isLoadMore = false;
                     }
                     new Handler().postDelayed(() -> afterLoad = true, 2000);
-                    mReportsAdapter.addReportsToAdapter(reportDTOListModel.getModel());
+                    mComplaintsAdapter.addReportsToAdapter(reportDTOListModel.getModel());
 
                 }
             } else {
@@ -219,7 +219,7 @@ public class MyReportsFragment extends Fragment implements MyReportsView {
     @OnClick(R.id.img_sort_reports)
     public void onSortReportClickListener(View view) {
         isSort = !isSort;
-        mReportsAdapter.clear();
+        mComplaintsAdapter.clear();
         afterLoad = false;
         isLoadMore = true;
         offset = 0;
@@ -272,7 +272,7 @@ public class MyReportsFragment extends Fragment implements MyReportsView {
             setRefreshOf();
             mReportsRV.hideShimmerAdapter();
             progressBar.setVisibility(View.GONE);
-            if (mReportsAdapter.getItemCount() > 0) {
+            if (mComplaintsAdapter.getItemCount() > 0) {
                 mReportsRV.setVisibility(View.VISIBLE);
                 mEmptyView.setVisibility(View.GONE);
                 mNetworkErrorView.setVisibility(View.GONE);
@@ -314,14 +314,14 @@ public class MyReportsFragment extends Fragment implements MyReportsView {
         afterLoad = false;
         //isLoadMore = true;
         searchFlag = true;
-        mReportsAdapter.clear();
+        mComplaintsAdapter.clear();
         isSort = false;
         new Handler().postDelayed(this::searchInReports, 1000);
 
     }
 
     private void searchInReports() {
-        if (mReportsAdapter.getItemCount() != 0)
+        if (mComplaintsAdapter.getItemCount() != 0)
             progressBar.setVisibility(View.VISIBLE);
 
         if (offset == 0)

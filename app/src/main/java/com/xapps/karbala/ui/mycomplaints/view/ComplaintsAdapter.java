@@ -20,8 +20,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ReportsAdapter extends RecyclerView.Adapter<ReportsAdapter.ReportsViewHolder> {
-    private MyReportsFragment myReportsFragment;
+public class ComplaintsAdapter extends RecyclerView.Adapter<ComplaintsAdapter.ReportsViewHolder> {
+    private MyComplaintsFragment myComplaintsFragment;
     OnReportItemClickListener onReportItemClickListener;
     List<ComplaintDTO> complaintDTOList;
 
@@ -29,8 +29,8 @@ public class ReportsAdapter extends RecyclerView.Adapter<ReportsAdapter.ReportsV
         this.onReportItemClickListener = onReportItemClickListener;
     }
 
-    public ReportsAdapter(MyReportsFragment myReportsFragment, List<ComplaintDTO> complaintDTOList) {
-        this.myReportsFragment = myReportsFragment;
+    public ComplaintsAdapter(MyComplaintsFragment myComplaintsFragment, List<ComplaintDTO> complaintDTOList) {
+        this.myComplaintsFragment = myComplaintsFragment;
         this.complaintDTOList = complaintDTOList;
     }
 
@@ -38,7 +38,7 @@ public class ReportsAdapter extends RecyclerView.Adapter<ReportsAdapter.ReportsV
     @Override
     public ReportsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_report, parent, false);
-        return new ReportsAdapter.ReportsViewHolder(view);
+        return new ComplaintsAdapter.ReportsViewHolder(view);
     }
 
     @Override

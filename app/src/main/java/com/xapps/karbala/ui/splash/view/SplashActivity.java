@@ -11,7 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.blankj.utilcode.util.NetworkUtils;
-import com.crashlytics.android.Crashlytics;
+import com.google.android.gms.maps.model.LatLng;
 import com.xapps.karbala.R;
 import com.xapps.karbala.model.data.dto.LoginDTO;
 import com.xapps.karbala.model.data.dto.MetaDataDTO;
@@ -24,10 +24,17 @@ import com.xapps.karbala.utils.Constants;
 import com.xapps.karbala.utils.KarbalaUtils;
 import com.xapps.karbala.utils.LocalHelper;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import io.fabric.sdk.android.Fabric;
+
 
 public class SplashActivity extends BaseActivity implements SplashView {
 
@@ -43,6 +50,7 @@ public class SplashActivity extends BaseActivity implements SplashView {
     private double t;
     private int readMetaData = Constants.NOREADED;
     private int userSignedUp = Constants.NOREADED;
+    private List<LatLng> latLngs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +58,7 @@ public class SplashActivity extends BaseActivity implements SplashView {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        Fabric.with(this, new Crashlytics());
+        //Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_splash);
 
         ButterKnife.bind(this);
@@ -60,6 +68,17 @@ public class SplashActivity extends BaseActivity implements SplashView {
     }
 
     private void initUI() {
+
+
+        /*createKarbalaPolygon();
+        if (PolyUtil.containsLocation(new LatLng(32.73647762,44.24121314),latLngs,true)) {
+            KarbalaUtils.showToast(this,"Done",Constants.FANCYERROR);
+
+        } else {
+            KarbalaUtils.showToast(this,getString(R.string.err_out_of_karbala_area),Constants.FANCYERROR);
+        }
+*/
+
         TIME_TO_WAIT = System.currentTimeMillis();
         initLoader();
 
@@ -82,7 +101,31 @@ public class SplashActivity extends BaseActivity implements SplashView {
                 LocalHelper.setLocale(this, "ar");
             }
             splashPresenter.getMetaData();
+
+
         });
+    }
+
+    public void createKarbalaPolygon() {
+        latLngs = new ArrayList<>();
+        try {
+            InputStream file = getAssets().open("KarbalaPoints.txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(file));
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                String[] strings = line.split(",");
+                LatLng latLng = new LatLng(Double.parseDouble(strings[0]), Double.parseDouble(strings[1]));
+                latLngs.add(latLng);
+            }
+
+            br.close();
+            file.close();    //closes the stream and release the resources
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void initLoader() {
